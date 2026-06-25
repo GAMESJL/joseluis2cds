@@ -9,7 +9,7 @@ font-family: "Poppins", sans-serif;
 header{
 background-color: #424e61;
 color: rgb(53, 214, 13);
-width: 100%;
+width: 25%;
 padding: 20px;
 }
 .cabecalho-itens{
@@ -20,7 +20,7 @@ align-items: center;
 justify-content: center;
 }
 .cabecalho-imagem{
-width: 10%;
+width: 70%;
 display: flex;
 justify-content: flex-start;
 align-items: center;
@@ -28,7 +28,7 @@ align-items: center;
 .titulo_site{
 padding: 50px;
 text-align: center;
-width: 50%;
+width: 25%;
 font: 30px;
 }
 .sociais{
