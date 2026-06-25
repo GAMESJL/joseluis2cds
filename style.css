@@ -8,7 +8,7 @@ font-family: "Poppins", sans-serif;
 }
 header{
 background-color: #424e61;
-color: rgb(255, 255, 255);
+color: rgb(53, 214, 13);
 width: 100%;
 padding: 20px;
 }
@@ -28,7 +28,7 @@ align-items: center;
 .titulo_site{
 padding: 50px;
 text-align: center;
-width: 70%;
+width: 50%;
 font: 30px;
 }
 .sociais{
