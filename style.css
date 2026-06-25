@@ -28,7 +28,7 @@ align-items: center;
 .titulo_site{
 padding: 50px;
 text-align: center;
-width: 50%;
+width: 70%;
 font: 30px;
 }
 .sociais{
@@ -57,7 +57,7 @@ width: 38px;
 padding: 4px 8px;
 }
 .estudante{
-background-image: background-color(#faae43);
+background-image: background-color(#eadddd);
 padding: 24px 0;
 }
 
