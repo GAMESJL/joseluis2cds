@@ -127,7 +127,7 @@ ul li a:hover {
 }
 
 body{
-    height: 100vh;
+    height: 10vh;
     display: flex;
     background: var(--eerie-black);
     flex-direction: column;
