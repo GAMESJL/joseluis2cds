@@ -120,3 +120,227 @@ ul li a:hover {
   background-color: rgb(15, 206, 40);
 }
 
+
+
+/* ====== Jogo da Memória — estilos isolados em #memoria ====== */
+
+#memoria {
+  --fundo: #e9edf9;
+  --tinta: #1c2147;
+  --verso: #3a3f9c;
+  --verso-claro: #5359c4;
+  --frente: #ffffff;
+  --destaque: #ffc83d;
+  --acerto: #2a9d73;
+  --erro: #e0584f;
+  --raio: 14px;
+
+  box-sizing: border-box;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  color: var(--tinta);
+}
+
+#memoria *,
+#memoria *::before,
+#memoria *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: #e9edf9;
+}
+
+/* Topo */
+.memoria__topo {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.memoria__topo h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.7rem, 5vw, 2.3rem);
+  letter-spacing: -0.01em;
+}
+
+.memoria__dica {
+  margin: 0;
+  font-size: 0.98rem;
+  opacity: 0.8;
+}
+
+/* Painel */
+.memoria__painel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--tinta);
+  color: #fff;
+  border-radius: var(--raio);
+}
+
+.memoria__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 0.95rem;
+}
+
+.memoria__info strong {
+  color: var(--destaque);
+  font-variant-numeric: tabular-nums;
+}
+
+.memoria__controles {
+  display: flex;
+  gap: 8px;
+}
+
+#memoria select,
+#memoria .botao {
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+#memoria select {
+  background: #fff;
+  color: var(--tinta);
+}
+
+#memoria .botao {
+  background: var(--destaque);
+  color: var(--tinta);
+  font-weight: 700;
+}
+
+#memoria .botao:hover {
+  filter: brightness(1.06);
+}
+
+#memoria select:focus-visible,
+#memoria .botao:focus-visible,
+#memoria .carta:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 3px;
+}
+
+/* Tabuleiro */
+.tabuleiro {
+  display: grid;
+  grid-template-columns: repeat(var(--colunas, 4), 1fr);
+  gap: clamp(8px, 2vw, 14px);
+}
+
+/* Carta */
+.carta {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 0;
+  background: none;
+  perspective: 700px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.carta__miolo {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+}
+
+.carta.virada .carta__miolo,
+.carta.par .carta__miolo {
+  transform: rotateY(180deg);
+}
+
+.carta__face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: var(--raio);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Verso: losangos desenhados só com CSS */
+.carta__verso {
+  background:
+    linear-gradient(45deg, var(--verso-claro) 25%, transparent 25%) 0 0 / 22px 22px,
+    linear-gradient(-45deg, var(--verso-claro) 25%, transparent 25%) 0 0 / 22px 22px,
+    var(--verso);
+  border: 3px solid var(--tinta);
+  box-shadow: 0 4px 0 var(--tinta);
+}
+
+.carta__frente {
+  transform: rotateY(180deg);
+  background: var(--frente);
+  border: 3px solid var(--tinta);
+  font-size: clamp(1.8rem, 9vw, 3rem);
+  line-height: 1;
+}
+
+.carta.par .carta__frente {
+  background: #d9f3e8;
+  border-color: var(--acerto);
+}
+
+.carta.erro .carta__frente {
+  border-color: var(--erro);
+  background: #fde6e4;
+}
+
+.carta.par {
+  cursor: default;
+}
+
+/* Mensagem de vitória */
+.memoria__mensagem {
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  text-align: center;
+  font-weight: 700;
+  background: var(--destaque);
+  border: 3px solid var(--tinta);
+  border-radius: var(--raio);
+}
+
+.memoria__mensagem[hidden] {
+  display: none;
+}
+
+/* Acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carta__miolo {
+    transition: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .memoria__painel {
+    justify-content: center;
+  }
+}
