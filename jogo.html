@@ -36,29 +36,19 @@ Página">
 
 
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jogo da Memória</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Se for colar em uma página sua, copie apenas o bloco <section id="memoria"> -->
-  <section id="memoria" class="memoria" aria-labelledby="memoria-titulo">
+ <section id="memoria" class="memoria" aria-labelledby="memoria-titulo">
     <header class="memoria__topo">
       <h1 id="memoria-titulo">Jogo da Memória</h1>
       <p class="memoria__dica">Vire duas cartas por vez e encontre todos os pares.</p>
     </header>
-
+ 
     <div class="memoria__painel">
       <div class="memoria__info" aria-live="polite">
         <span>Jogadas: <strong id="jogadas">0</strong></span>
         <span>Tempo: <strong id="tempo">00:00</strong></span>
         <span>Recorde: <strong id="recorde">—</strong></span>
       </div>
-
+ 
       <div class="memoria__controles">
         <label for="nivel" class="sr-only">Dificuldade</label>
         <select id="nivel">
@@ -69,12 +59,12 @@ Página">
         <button type="button" id="reiniciar" class="botao">Reiniciar</button>
       </div>
     </div>
-
+ 
     <div id="tabuleiro" class="tabuleiro" role="group" aria-label="Cartas do jogo"></div>
-
+ 
     <p id="mensagem" class="memoria__mensagem" role="status" hidden></p>
   </section>
-
+ 
   <script src="script.js"></script>
 </body>
 </html>
